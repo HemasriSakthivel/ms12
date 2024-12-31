@@ -1,0 +1,36 @@
+<div class="contact-wrapper">
+    <h1>Contact Us</h1>
+    <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+      <div class="input-group">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          [(ngModel)]="name"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          [(ngModel)]="email"
+          required
+        />
+      </div>
+      <div class="input-group">
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          [(ngModel)]="message"
+          rows="5"
+          required
+        ></textarea>
+      </div>
+      <button type="submit" [disabled]="!contactForm.form.valid">
+        Send Message
+      </button>
+    </form>
+  </div>
+  

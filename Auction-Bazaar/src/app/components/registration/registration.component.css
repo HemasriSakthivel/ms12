@@ -1,0 +1,227 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.signup-wrapper {
+    margin: auto;
+    display: flex;
+    width: 850px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.signup-image {
+    flex: 1;
+    background: linear-gradient(to top, #3498db, #2ecc71);
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-image h1 {
+    color: white;
+    font-size: 1.8rem;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+.signup-form {
+    flex: 1;
+    padding: 50px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signup-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    appearance: none;
+    background: none;
+    padding-left: 35px;
+    /* padding-right: 40px; */
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3498db;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.input-group .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translate(95%, -50%);
+    color: #a0a0a0;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 2;
+    pointer-events: all;
+}
+
+.input-group .toggle-password:hover {
+    color: #2e92d4;
+}
+
+.input-group input.ng-invalid.ng-touched,
+.input-group select.ng-invalid.ng-touched {
+    border-color: #e74c3c;
+}
+
+.input-group .error-text {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    font-size: 12px;
+    color: #e74c3c;
+    min-height: 1em;
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.signup-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.signup-btn:active {
+    background: #003f7f;
+    transform: scale(0.95);
+}
+
+.additional-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.additional-links a {
+    color: #6879e3;
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #e74c3c;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.input-group select {
+    color: #6b6b6b;
+    padding: 12px 35px 12px 40px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath fill='%236879e3' d='M5 6L0 0h10z'/%3E%3C/svg%3E") no-repeat right 15px center;
+    background-size: 10px;
+    cursor:pointer;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .signup-wrapper {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .signup-image {
+        flex: none;
+        height: 200px;
+    }
+
+    .signup-form {
+        padding: 20px;
+    }
+
+    .signup-form h2 {
+        font-size: 1.2rem;
+    }
+
+    .input-group input,
+    .input-group select {
+        width: 100%;
+        padding-left: 32;
+        font-size: 14px;
+    }
+
+    .input-group i {
+        font-size: 14px;
+    }
+
+    .signup-btn {
+        font-size: 14px;
+    }
+
+    .additional-links {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .signup-wrapper {
+        padding: 15px;
+    }
+
+    .signup-image h1 {
+        font-size: 1.5rem;
+    }
+
+    .signup-form h2 {
+        font-size: 1.1rem;
+    }
+
+    .input-group input,
+    .input-group select {
+        padding-left: 30px;
+        font-size: 13px;
+    }
+
+    .signup-btn {
+        font-size: 14px;
+    }
+
+    .additional-links a {
+        font-size: 12px;
+    }
+}

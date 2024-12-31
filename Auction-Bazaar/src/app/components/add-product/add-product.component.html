@@ -1,0 +1,75 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="Product-image">
+        <h1>Add Product Details</h1>
+    </div>
+    <div class="productDetail-wrapper">
+
+        <div class="product-image">
+            <p>File Selected: {{ product.image ? product.image.name : 'No file selected' }}</p>
+            <div *ngIf="isImage(product.image); else noFile">
+                <img [src]="filePreview" alt="File preview" />
+            </div>
+            <ng-template #noFile>
+                <div class="empty-box">
+                    <p>No file selected</p>
+                </div>
+            </ng-template>
+            <div class="input-group">
+                <input type="file" id="file" (change)="onFileSelected($event)" placeholder="Choose File" required />
+            </div>
+        </div>
+
+        <div class="product_form">
+            <!-- Product Name -->
+            <div class="input-group">
+                <input type="text" id="name" [(ngModel)]="product.name" name="name"
+                    placeholder="Product Name*" required />
+            </div>
+
+            <!-- Description -->
+            <div class="input-group">
+                <textarea id="description" [(ngModel)]="product.description" name="description"
+                    placeholder="Product Description*" required></textarea>
+            </div>
+
+            <!-- Starting Price -->
+            <div class="input-group">
+                <input type="number" id="startingPrice" [(ngModel)]="product.startingPrice" name="startingPrice"
+                    placeholder="Starting Price*" required />
+            </div>
+
+            <!-- Category -->
+            <div class="input-group">
+                <select id="category" [(ngModel)]="product.category" name="category" required>
+                    <option value="" disabled selected hidden>Category*</option>
+                    <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+                </select>
+            </div>
+
+            <!-- Start and End Time (Date and Time combined) -->
+            <div class="row-2">
+                <div class="input-group">
+                    <label for="startTime">Start Date & Time</label>
+                    <input type="datetime-local" id="startTime" [(ngModel)]="product.startTime" name="startTime" placeholder="Start Time" required />
+                </div>
+
+                <div class="input-group">
+                    <label for="endTime">End Date & Time</label>
+                    <input type="datetime-local" id="endTime" [(ngModel)]="product.endTime" name="endTime" placeholder="End Time" required />
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-group">
+                <button type="submit"
+                    [disabled]="!product.image || !product.name || !product.startingPrice || !product.category || !product.startTime || !product.endTime">
+                    Add Product
+                </button>
+                <button type="button" (click)="clearForm()">Clear Form</button>
+                <button type="button" (click)="closeForm()">Close Form</button>
+            </div>
+
+        </div>
+
+    </div>
+</form>
